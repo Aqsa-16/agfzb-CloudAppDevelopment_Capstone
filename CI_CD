@@ -1,0 +1,26 @@
+Run: Lint Code
+Triggered via push by Aqsa-16 on branch master
+Status: Success
+
+Job: Linting JavaScript Function
+- Set up job: Success
+- Install NodeJS: Success
+- Code Checkout: Success
+- Install Dependencies: Success
+- Code Linting: Success
+
+Job: Linting Python Function
+- Set up job: Success
+- Code Checkout: Success
+- Set up Python 3.7: Success
+- Install dependencies: Success
+- Lint with Pylint: Success (Rated at 10.00/10)
+
+Job: Linting Django Server
+- Set up job: Success
+- Code Checkout: Success
+- Set up Python 3.7: Success
+- Install dependencies: Success
+- Lint with Pylint: Success (Rated at 10.00/10)
+
+All checks passed successfully.

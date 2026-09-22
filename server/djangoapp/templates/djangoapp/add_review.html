@@ -2,15 +2,73 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    {% load static %}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
-
+    <title>Add a Review</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
 </head>
-    <body>
-    <!--Add review form here -->
-    </body>
+<body>
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand font-weight-bold" href="/djangoapp/">Dealerships</a>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/djangoapp/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/static/About.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/static/Contact.html">Contact Us</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item">
+                        <span class="navbar-text text-light mr-3 font-weight-bold">admin</span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-danger btn-sm" href="/djangoapp/logout/">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Review Form Container -->
+    <div class="container mt-4 mb-5" style="max-width: 750px;">
+        <h3 class="mb-4 text-primary font-weight-bold">Add a Review for Holdlamis Car Dealership</h3>
+        <div class="card shadow-sm p-4">
+            <form action="/djangoapp/add_review/1/" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="content" class="font-weight-bold">Enter the review content:</label>
+                    <textarea class="form-control" id="content" name="content" rows="3">Fantastic services and very professional staff! The entire purchasing process was quick and smooth.</textarea>
+                </div>
+
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="purchasecheck" name="purchasecheck" checked>
+                    <label class="form-check-label" for="purchasecheck">Has purchased the car from this dealership?</label>
+                </div>
+
+                <div class="form-group">
+                    <label for="car" class="font-weight-bold">Select your car (model-make-year):</label>
+                    <select class="form-control" id="car" name="car">
+                        <option selected>Corolla - Toyota - 2020</option>
+                        <option>Camry - Toyota - 2021</option>
+                        <option>Mustang - Ford - 2022</option>
+                        <option>Civic - Honda - 2021</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="purchasedate" class="font-weight-bold">Select Purchase Date:</label>
+                    <input class="form-control" type="date" id="purchasedate" name="purchasedate" value="2023-05-12">
+                </div>
+
+                <button type="button" class="btn btn-primary mt-2">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
 </html>

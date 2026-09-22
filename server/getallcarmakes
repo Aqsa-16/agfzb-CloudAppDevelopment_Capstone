@@ -1,0 +1,2 @@
+curl -X GET http://127.0.0.1:8000/djangoapp/get_cars
+{"CarModels": [{"CarMake": "Toyota", "CarModel": "Corolla"}, {"CarMake": "Toyota", "CarModel": "Camry"}, {"CarMake": "Ford", "CarModel": "Mustang"}, {"CarMake": "Honda", "CarModel": "Civic"}, {"CarMake": "Nissan", "CarModel": "Altima"}]}

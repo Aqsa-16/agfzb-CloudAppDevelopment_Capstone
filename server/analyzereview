@@ -1,0 +1,2 @@
+curl -X GET http://127.0.0.1:8000/djangoapp/sentiment_analyzer/Fantastic%20services
+{"status": 200, "sentiment": "positive"}

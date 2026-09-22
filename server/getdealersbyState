@@ -1,0 +1,2 @@
+curl -X GET http://127.0.0.1:8000/djangoapp/get_dealers/Kansas
+{"status": 200, "dealers": [{"id": 3, "city": "Topeka", "state": "Kansas", "st": "KS", "address": "124 Main Street", "zip": "66603", "lat": 39.0473, "long": -95.6752, "short_name": "Kansas Auto", "full_name": "Kansas Auto Dealership"}]}

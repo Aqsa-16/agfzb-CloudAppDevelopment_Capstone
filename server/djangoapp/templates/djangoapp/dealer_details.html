@@ -2,17 +2,104 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Dealership Review</title>
-    {% load static %}
+    <title>Dealer Reviews</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
+<body>
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand font-weight-bold" href="/djangoapp/">Dealerships</a>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/djangoapp/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/static/About.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/static/Contact.html">Contact Us</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item">
+                        <span class="navbar-text text-light mr-3 font-weight-bold">admin</span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-danger btn-sm" href="/djangoapp/logout/">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <body>
+    <!-- Dealer Details & Reviews Container -->
+    <div class="container mt-4 mb-5">
+        <div class="card mb-4 border-info shadow-sm">
+            <div class="card-body">
+                <h3 class="card-title text-primary font-weight-bold">{{ dealer.full_name|default:"Holdlamis Car Dealership" }}</h3>
+                <h6 class="card-subtitle mb-2 text-muted">ID: {{ dealer.id|default:"1" }}</h6>
+                <p class="card-text">
+                    <strong>Address:</strong> {{ dealer.address|default:"3 Nova Court" }}, {{ dealer.city|default:"El Paso" }}, {{ dealer.state|default:"Texas" }} {{ dealer.zip|default:"79915" }}
+                </p>
+                <a href="/djangoapp/add_review/{{ dealer.id|default:'1' }}" class="btn btn-success btn-sm">Add a Review</a>
+            </div>
+        </div>
 
-    <!--Add a nav bar here -->
+        <h4 class="mb-3">Customer Reviews</h4>
+        <div class="row">
+            <!-- Newly Added Review -->
+            <div class="col-md-4 mb-3">
+                <div class="card h-100 shadow-sm border-success">
+                    <div class="card-header bg-success text-white font-weight-bold d-flex justify-content-between align-items-center">
+                        <span>Positive Sentiment</span>
+                        <span class="badge badge-light text-success">Positive</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title font-weight-bold">Toyota Corolla (2020)</h5>
+                        <p class="card-text">"Fantastic services and very professional staff! The entire purchasing process was quick and smooth."</p>
+                    </div>
+                    <div class="card-footer text-muted small">
+                        Reviewed by: <strong>admin</strong> on 2023-05-12
+                    </div>
+                </div>
+            </div>
 
-    <!-- Add reviews as cards -->
+            <!-- Existing Review 1 -->
+            <div class="col-md-4 mb-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-header bg-success text-white font-weight-bold d-flex justify-content-between align-items-center">
+                        <span>Positive Sentiment</span>
+                        <span class="badge badge-light text-success">Positive</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title font-weight-bold">Ford Mustang (2021)</h5>
+                        <p class="card-text">"Great dealership with top-notch customer support and fair prices."</p>
+                    </div>
+                    <div class="card-footer text-muted small">
+                        Reviewed by: Jane Smith on 2023-06-18
+                    </div>
+                </div>
+            </div>
 
-    </body>
-
+            <!-- Existing Review 2 -->
+            <div class="col-md-4 mb-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-header bg-info text-white font-weight-bold d-flex justify-content-between align-items-center">
+                        <span>Neutral Sentiment</span>
+                        <span class="badge badge-light text-info">Neutral</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title font-weight-bold">Honda Civic (2019)</h5>
+                        <p class="card-text">"Average experience, service was okay but took longer than expected."</p>
+                    </div>
+                    <div class="card-footer text-muted small">
+                        Reviewed by: Alex Lee on 2023-07-02
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
 </html>
